@@ -169,11 +169,12 @@ ENDIF()
 
 # Needed libraries - topologically sorted
 SET(UTILS_NEEDED_LIBS utilslib)
+SET(THRIFTGEN_NEEDED_LIBS thriftgenlib ${THRIFT_LIBRARIES})
 
 # Includes, please keep sorted
 INCLUDE_DIRECTORIES(hello/include)
-INCLUDE_DIRECTORIES(utils/include)
 #INCLUDE_DIRECTORIES(thriftgen/include)
+INCLUDE_DIRECTORIES(utils/include)
 # Includes, please keep sorted
 
 # Applications, please keep sorted
