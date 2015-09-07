@@ -156,6 +156,7 @@ ENDIF (("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU") OR ("${CMAKE_CXX_COMPILER_ID}
 
 # Find all third party packages
 FIND_PACKAGE(CppUnit) # REQUIRED) # Can compile without unit tests, right?
+FIND_PACKAGE(Thrift REQUIRED)
 
 # Enable testing
 ENABLE_TESTING()
@@ -172,10 +173,12 @@ SET(UTILS_NEEDED_LIBS utilslib)
 # Includes, please keep sorted
 INCLUDE_DIRECTORIES(hello/include)
 INCLUDE_DIRECTORIES(utils/include)
+#INCLUDE_DIRECTORIES(thriftgen/include)
 # Includes, please keep sorted
 
 # Applications, please keep sorted
 ADD_SUBDIRECTORY(hello)
+#ADD_SUBDIRECTORY(thriftgen)
 ADD_SUBDIRECTORY(utils)
 # Applications, please keep sorted
 
