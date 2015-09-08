@@ -23,6 +23,7 @@ class ServHandler : virtual public ServIf {
   void put(const Student& s) {
     // Your implementation goes here
     printf("put\n");
+    printf("sno=%d sname=%s ssex=%d sage=%d\n", s.sno, s.sname.c_str(), s.ssex, s.sage);
   }
 
 };
