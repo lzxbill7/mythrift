@@ -174,12 +174,14 @@ SET(THRIFTGEN_NEEDED_LIBS thriftgenlib ${THRIFT_LIBRARIES})
 # Includes, please keep sorted
 INCLUDE_DIRECTORIES(hello/include)
 #INCLUDE_DIRECTORIES(thriftgen/include)
+#INCLUDE_DIRECTORIES(thriftgen/include)
 INCLUDE_DIRECTORIES(utils/include)
 # Includes, please keep sorted
 
 # Applications, please keep sorted
 ADD_SUBDIRECTORY(hello)
 #ADD_SUBDIRECTORY(thriftgen)
+ADD_SUBDIRECTORY(thriftsample)
 ADD_SUBDIRECTORY(utils)
 # Applications, please keep sorted
 
