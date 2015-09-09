@@ -1,20 +1,17 @@
 # Find the Thrift includes and library
 
 FIND_PATH(MONGO_INCLUDE_DIR mongo/client/dbclient.h
-    /usr/local/include
-    /usr/include
+    /opt/rpmbuild/include
 )
 
 # On unix system, debug and release have the same name
 FIND_LIBRARY(MONGO_LIBRARY mongoclient
-    ${MONGO_INCLUDE_DIR}/../lib64
-    /usr/local/lib64
-    /usr/lib64)
+    ${MONGO_INCLUDE_DIR}/../lib
+)
 
 FIND_LIBRARY(MONGO_DEBUG_LIBRARY mongoclient
-    ${MONGO_INCLUDE_DIR}/../lib64
-        /usr/local/lib64}
-        /usr/lib64)
+    ${MONGO_INCLUDE_DIR}/../lib
+)
 
 IF (MONGO_INCLUDE_DIR AND MONGO_LIBRARIES)
     SET(MONGO_FOUND TRUE)
