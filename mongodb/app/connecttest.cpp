@@ -1,6 +1,6 @@
 /**
- * @file       connectest.cpp
- * @brief      /mythrift/mongodb/app/connectest.cpp
+ * @file       connecttest.cpp
+ * @brief      /mythrift/mongodb/app/connecttest.cpp
  *
  * @date       Sep 9, 2015
  * @author     lzx_bupt@126.com

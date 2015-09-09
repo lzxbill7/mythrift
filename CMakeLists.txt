@@ -155,9 +155,10 @@ ELSE (("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU") OR ("${CMAKE_CXX_COMPILER_ID}"
 ENDIF (("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU") OR ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang"))
 
 # Find all third party packages
+FIND_PACKAGE(Boost REQUIRED)
 FIND_PACKAGE(CppUnit) # REQUIRED) # Can compile without unit tests, right?
-FIND_PACKAGE(Thrift REQUIRED)
 FIND_PACKAGE(Mongo REQUIRED)
+FIND_PACKAGE(Thrift REQUIRED)
 
 # Enable testing
 ENABLE_TESTING()
@@ -170,6 +171,7 @@ ENDIF()
 
 # Needed libraries - topologically sorted
 SET(UTILS_NEEDED_LIBS utilslib)
+SET(MONGODB_NEEDED_LIBS ${MONGO_LIBRARIES} ${BOOST_LIBRARIES})
 SET(THRIFTGEN_NEEDED_LIBS thriftgenlib ${THRIFT_LIBRARIES})
 SET(THRIFTSAMPLE_NEEDED_LIBS thriftsamplelib ${THRIFT_LIBRARIES})
 
@@ -182,6 +184,7 @@ INCLUDE_DIRECTORIES(utils/include)
 
 # Applications, please keep sorted
 ADD_SUBDIRECTORY(hello)
+ADD_SUBDIRECTORY(mongodb)
 ADD_SUBDIRECTORY(thriftgen)
 ADD_SUBDIRECTORY(thriftsample)
 ADD_SUBDIRECTORY(utils)

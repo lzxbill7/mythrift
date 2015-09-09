@@ -1,7 +1,7 @@
 # Find the Thrift includes and library
 
 FIND_PATH(MONGO_INCLUDE_DIR mongo/client/dbclient.h
-    /opt/rpmbuild/include
+    /usr/local/include
 )
 
 # On unix system, debug and release have the same name
