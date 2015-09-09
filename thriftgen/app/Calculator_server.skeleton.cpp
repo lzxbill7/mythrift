@@ -7,53 +7,68 @@
 #include <thrift/transport/TServerSocket.h>
 #include <thrift/transport/TBufferTransports.h>
 
+#include <iostream>
+#include <stdexcept>
+#include <sstream>
+
 using namespace ::apache::thrift;
 using namespace ::apache::thrift::protocol;
 using namespace ::apache::thrift::transport;
 using namespace ::apache::thrift::server;
 
-using boost::shared_ptr;
+//using boost::shared_ptr;
 
-using namespace  ::tutorial;
+using namespace std;
+using namespace ::tutorial;
+using namespace shared;
 
-class CalculatorHandler : virtual public CalculatorIf {
- public:
-  CalculatorHandler() {
-    // Your initialization goes here
-  }
+class CalculatorHandler: virtual public CalculatorIf {
+public:
+    CalculatorHandler() {
+        // Your initialization goes here
+    }
 
-  void ping() {
-    // Your implementation goes here
-    printf("ping\n");
-  }
+    void ping() {
+        // Your implementation goes here
+        printf("ping\n");
+    }
 
-  int32_t add(const int32_t num1, const int32_t num2) {
-    // Your implementation goes here
-    printf("add\n");
-  }
+    int32_t add(const int32_t num1, const int32_t num2) {
+        // Your implementation goes here
+        printf("add\n");
+        return 0;
+    }
 
-  int32_t calculate(const int32_t logid, const Work& w) {
-    // Your implementation goes here
-    printf("calculate\n");
-  }
+    int32_t calculate(const int32_t logid, const Work& w) {
+        // Your implementation goes here
+        printf("calculate\n");
+        return 0;
+    }
 
-  void zip() {
-    // Your implementation goes here
-    printf("zip\n");
-  }
+    void zip() {
+        // Your implementation goes here
+        printf("zip\n");
+    }
+
+    void getStruct(SharedStruct& ret, const int32_t logid) {
+        cout << "getStruct(" << logid << ")" << endl;
+        ret = log[logid];
+    }
+protected:
+  map<int32_t, SharedStruct> log;
 
 };
 
 int main(int argc, char **argv) {
-  int port = 9090;
-  shared_ptr<CalculatorHandler> handler(new CalculatorHandler());
-  shared_ptr<TProcessor> processor(new CalculatorProcessor(handler));
-  shared_ptr<TServerTransport> serverTransport(new TServerSocket(port));
-  shared_ptr<TTransportFactory> transportFactory(new TBufferedTransportFactory());
-  shared_ptr<TProtocolFactory> protocolFactory(new TBinaryProtocolFactory());
+    int port = 9090;
+    boost::shared_ptr<CalculatorHandler> handler(new CalculatorHandler());
+    boost::shared_ptr<TProcessor> processor(new CalculatorProcessor(handler));
+    boost::shared_ptr<TServerTransport> serverTransport(new TServerSocket(port));
+    boost::shared_ptr<TTransportFactory> transportFactory(new TBufferedTransportFactory());
+    boost::shared_ptr<TProtocolFactory> protocolFactory(new TBinaryProtocolFactory());
 
-  TSimpleServer server(processor, serverTransport, transportFactory, protocolFactory);
-  server.serve();
-  return 0;
+    TSimpleServer server(processor, serverTransport, transportFactory, protocolFactory);
+    server.serve();
+    return 0;
 }
 
