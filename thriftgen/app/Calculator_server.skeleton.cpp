@@ -30,24 +30,58 @@ public:
 
     void ping() {
         // Your implementation goes here
-        printf("ping\n");
+        cout << "ping()" << endl;
+        ;
     }
 
     int32_t add(const int32_t num1, const int32_t num2) {
         // Your implementation goes here
-        printf("add\n");
-        return 0;
+        cout << "add(" << num1 << ", " << num2 << ")" << endl;
+        return num1 + num2;
     }
 
     int32_t calculate(const int32_t logid, const Work& w) {
-        // Your implementation goes here
-        printf("calculate\n");
-        return 0;
+        cout << "calculate(" << logid << ", " << w.op << ")" << endl;
+        int32_t val;
+
+        switch (w.op) {
+        case Operation::ADD:
+            val = w.num1 + w.num2;
+            break;
+        case Operation::SUBTRACT:
+            val = w.num1 - w.num2;
+            break;
+        case Operation::MULTIPLY:
+            val = w.num1 * w.num2;
+            break;
+        case Operation::DIVIDE:
+            if (w.num2 == 0) {
+                InvalidOperation io;
+                io.whatOp = w.op;
+                io.why = "Cannot divide by 0";
+                throw io;
+            }
+            val = w.num1 / w.num2;
+            break;
+        default:
+            InvalidOperation io;
+            io.whatOp = w.op;
+            io.why = "Invalid Operation";
+            throw io;
+        }
+
+        SharedStruct ss;
+        ss.key = logid;
+        ss.value = to_string(val);
+
+        log[logid] = ss;
+
+        return val;
     }
 
     void zip() {
         // Your implementation goes here
-        printf("zip\n");
+        cout << "zip" << endl;
     }
 
     void getStruct(SharedStruct& ret, const int32_t logid) {
@@ -55,7 +89,7 @@ public:
         ret = log[logid];
     }
 protected:
-  map<int32_t, SharedStruct> log;
+    map<int32_t, SharedStruct> log;
 
 };
 
