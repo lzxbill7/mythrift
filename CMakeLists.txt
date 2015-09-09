@@ -157,6 +157,7 @@ ENDIF (("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU") OR ("${CMAKE_CXX_COMPILER_ID}
 # Find all third party packages
 FIND_PACKAGE(CppUnit) # REQUIRED) # Can compile without unit tests, right?
 FIND_PACKAGE(Thrift REQUIRED)
+FIND_PACKAGE(Mongo REQUIRED)
 
 # Enable testing
 ENABLE_TESTING()
