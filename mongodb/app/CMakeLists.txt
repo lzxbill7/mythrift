@@ -1,3 +1,7 @@
 ADD_EXECUTABLE(connecttest connecttest.cpp)
 TARGET_LINK_LIBRARIES(connecttest ${MONGODB_NEEDED_LIBS})
 # INSTALL(TARGETS connecttest DESTINATION bin)
+
+ADD_EXECUTABLE(bsontest bsontest.cpp)
+TARGET_LINK_LIBRARIES(bsontest ${MONGODB_NEEDED_LIBS})
+# INSTALL(TARGETS bsontest DESTINATION bin)
