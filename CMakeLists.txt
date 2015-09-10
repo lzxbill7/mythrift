@@ -177,6 +177,7 @@ SET(THRIFTSAMPLE_NEEDED_LIBS thriftsamplelib ${THRIFT_LIBRARIES})
 
 # Includes, please keep sorted
 INCLUDE_DIRECTORIES(hello/include)
+INCLUDE_DIRECTORIES(mongodb/include)
 INCLUDE_DIRECTORIES(thriftgen/include)
 INCLUDE_DIRECTORIES(thriftsample/include)
 INCLUDE_DIRECTORIES(utils/include)
