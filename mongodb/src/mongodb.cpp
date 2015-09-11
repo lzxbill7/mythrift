@@ -8,7 +8,6 @@
  */
 
 #include <stdlib.h>
-#include "mongo/client/dbclient.h"
 
 #include "mongodb/mongodb.h"
 
@@ -23,9 +22,7 @@ MongoDb* MongoDb::getInstance()
     if (s_instance == NULL)
     {
         s_instance = new MongoDb();
-
-        // TODO: catch the connection exception
-        mongo::client::initialize();
+        s_instance->open("localhost");
 
         return EXIT_SUCCESS;
     }
@@ -37,6 +34,8 @@ void MongoDb::destroyInstance()
 {
     if (NULL != s_instance)
     {
+        s_instance->close();
+
         delete s_instance;
         s_instance = NULL;
     }

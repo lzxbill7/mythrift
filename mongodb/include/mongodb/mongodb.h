@@ -10,9 +10,11 @@
 #ifndef MONGODB_MONGODB_H_
 #define MONGODB_MONGODB_H_
 
+#include "mongodb/mongobase.h"
+
 namespace mongodb
 {
-class MongoDb
+class MongoDb : public MongoBase
 {
 public:
     static MongoDb *getInstance();
@@ -26,6 +28,7 @@ protected:
 private:
     static MongoDb* s_instance;
     static void destroyInstanceAtExit() __attribute__((destructor));
+
 };
 } // namespace mongodb
 
