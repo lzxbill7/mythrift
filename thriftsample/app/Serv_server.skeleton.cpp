@@ -18,6 +18,7 @@ using boost::shared_ptr;
 
 using namespace mongodb;
 
+
 class ServHandler: virtual public ServIf {
 public:
     ServHandler() {
@@ -27,8 +28,17 @@ public:
 
     void put(const Student& s) {
         // Your implementation goes here
-        printf("put\n");
         printf("sno=%d sname=%s ssex=%d sage=%d\n", s.sno, s.sname.c_str(), s.ssex, s.sage);
+
+        mongo::BSONObjBuilder b;
+        b.append("sno", s.sno);
+        b.append("sname", s.sname.c_str());
+        b.append("ssex", s.ssex);
+        b.append("ssage", s.sage);
+        mongo::BSONObj student = b.obj();
+
+        MongoDb::getInstance()->insert("tutorial.students", student);
+        std::cout << "Inserted student:" << student << std::endl;
     }
 
 };
