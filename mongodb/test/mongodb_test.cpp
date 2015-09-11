@@ -23,6 +23,7 @@ using namespace mongodb;
 class TestMongoDb: public CppUnit::TestFixture {
     CPPUNIT_TEST_SUITE(TestMongoDb);
     CPPUNIT_TEST(testHello);
+    CPPUNIT_TEST(testInstance);
     CPPUNIT_TEST_SUITE_END();
 
 public:
