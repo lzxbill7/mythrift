@@ -8,6 +8,8 @@
  */
 
 #include <stdlib.h>
+#include "mongo/client/dbclient.h"
+
 #include "mongodb/mongodb.h"
 
 namespace mongodb
@@ -21,6 +23,11 @@ MongoDb* MongoDb::getInstance()
     if (s_instance == NULL)
     {
         s_instance = new MongoDb();
+
+        // TODO: catch the connection exception
+        mongo::client::initialize();
+
+        return EXIT_SUCCESS;
     }
 
     return s_instance;

@@ -18,6 +18,11 @@ public:
     static MongoDb *getInstance();
     static void destroyInstance();
 
+protected:
+    MongoDb();
+    MongoDb(const MongoDb&) = delete;
+    MongoDb& operator=(const MongoDb&) = delete;
+
 private:
     static MongoDb* s_instance;
     static void destroyInstanceAtExit() __attribute__((destructor));
