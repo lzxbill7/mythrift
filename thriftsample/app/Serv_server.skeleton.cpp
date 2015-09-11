@@ -6,6 +6,7 @@
 #include <thrift/transport/TServerSocket.h>
 #include <thrift/transport/TBufferTransports.h>
 
+#include "mongodb/mongodb.h"
 #include "thriftsample/Serv.h"
 
 using namespace ::apache::thrift;
@@ -15,11 +16,13 @@ using namespace ::apache::thrift::server;
 
 using boost::shared_ptr;
 
+using namespace mongodb;
+
 class ServHandler: virtual public ServIf {
 public:
     ServHandler() {
         // Your initialization goes here
-
+        MongoDb::getInstance();
     }
 
     void put(const Student& s) {
