@@ -16,6 +16,9 @@ namespace mongodb
 
 MongoDb* MongoDb::s_instance(NULL);
 
+MongoDb::MongoDb(void)
+{
+}
 
 MongoDb* MongoDb::getInstance()
 {
@@ -23,8 +26,6 @@ MongoDb* MongoDb::getInstance()
     {
         s_instance = new MongoDb();
         s_instance->open("localhost");
-
-        return EXIT_SUCCESS;
     }
 
     return s_instance;

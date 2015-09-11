@@ -16,6 +16,7 @@
 // Namespaces.
 using namespace CppUnit;
 using namespace std;
+using namespace mongodb;
 
 //-----------------------------------------------------------------------------
 
@@ -30,6 +31,11 @@ public:
 
 protected:
     void testHello(void);
+
+    void testInstance(void)
+    {
+        MongoDb::getInstance();
+    }
 
 private:
     // Our objects
