@@ -43,7 +43,7 @@ protected:
 private:
     void initializeDriver(void);
 
-private:
+protected:
     mongo::DBClientConnection* m_dbconn;
     char *m_lastErrorBuff;
 

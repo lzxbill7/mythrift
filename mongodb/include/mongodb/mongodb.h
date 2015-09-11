@@ -20,6 +20,11 @@ public:
     static MongoDb *getInstance();
     static void destroyInstance();
 
+    static void insert(const std::string &ns, mongo::BSONObj& obj)
+    {
+        getInstance()->m_dbconn->insert(ns, obj);
+    }
+
 protected:
     MongoDb();
     MongoDb(const MongoDb&) = delete;
