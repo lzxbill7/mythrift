@@ -172,22 +172,22 @@ ENDIF()
 # Needed libraries - topologically sorted
 SET(UTILS_NEEDED_LIBS utilslib)
 SET(MONGODB_NEEDED_LIBS ${MONGO_LIBRARIES} ${BOOST_LIBRARIES})
-SET(THRIFTGEN_NEEDED_LIBS thriftgenlib ${THRIFT_LIBRARIES})
+SET(THRIFTTUTORIAL_NEEDED_LIBS thrifttutoriallib ${THRIFT_LIBRARIES})
 SET(THRIFTSAMPLE_NEEDED_LIBS thriftsamplelib ${THRIFT_LIBRARIES})
 
 # Includes, please keep sorted
 INCLUDE_DIRECTORIES(hello/include)
 INCLUDE_DIRECTORIES(mongodb/include)
-INCLUDE_DIRECTORIES(thriftgen/include)
 INCLUDE_DIRECTORIES(thriftsample/include)
+INCLUDE_DIRECTORIES(thrifttutorial/include)
 INCLUDE_DIRECTORIES(utils/include)
 # Includes, please keep sorted
 
 # Applications, please keep sorted
 ADD_SUBDIRECTORY(hello)
 ADD_SUBDIRECTORY(mongodb)
-ADD_SUBDIRECTORY(thriftgen)
 ADD_SUBDIRECTORY(thriftsample)
+ADD_SUBDIRECTORY(thrifttutorial)
 ADD_SUBDIRECTORY(utils)
 # Applications, please keep sorted
 

@@ -11,7 +11,7 @@
 #include <thrift/transport/TSocket.h>
 #include <thrift/transport/TTransportUtils.h>
 
-#include "thriftgen/Calculator.h"
+#include "thrifttutorial/Calculator.h"
 
 using namespace std;
 using namespace apache::thrift;
