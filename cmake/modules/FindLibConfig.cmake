@@ -5,12 +5,12 @@ FIND_PATH(LIBCONFIG_INCLUDE_DIR libconfig.h++
     /usr/include
 )
 
-FIND_LIBRARY(LIBCONFIG_LIBRARY libconfig++
+FIND_LIBRARY(LIBCONFIG_LIBRARY config++
     ${LIBCONFIG_INCLUDE_DIR}/../lib64
     /usr/local/lib64
     /usr/lib64)
 
-FIND_LIBRARY(LIBCONFIG_DEBUG_LIBRARY libconfig++
+FIND_LIBRARY(LIBCONFIG_DEBUG_LIBRARY config++
     ${LIBCONFIG_INCLUDE_DIR}/../lib64
         /usr/local/lib64}
         /usr/lib64)

@@ -187,6 +187,7 @@ INCLUDE_DIRECTORIES(utils/include)
 
 # Applications, please keep sorted
 ADD_SUBDIRECTORY(hello)
+ADD_SUBDIRECTORY(hellolibconfig)
 ADD_SUBDIRECTORY(hellolog4cplus)
 ADD_SUBDIRECTORY(mongodb)
 ADD_SUBDIRECTORY(thriftsample)

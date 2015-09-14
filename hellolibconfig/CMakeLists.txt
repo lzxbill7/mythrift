@@ -1,1 +1,3 @@
 # apps
+ADD_EXECUTABLE(example1 app/example1.cpp)
+TARGET_LINK_LIBRARIES(example1 ${LIBCONFIG_LIBRARIES})
