@@ -157,6 +157,8 @@ ENDIF (("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU") OR ("${CMAKE_CXX_COMPILER_ID}
 # Find all third party packages
 FIND_PACKAGE(Boost REQUIRED)
 FIND_PACKAGE(CppUnit) # REQUIRED) # Can compile without unit tests, right?
+FIND_PACKAGE(LibConfig REQUIRED) # For learning :-)
+FIND_PACKAGE(Log4cplus REQUIRED) # For learning :-)
 FIND_PACKAGE(Mongo REQUIRED)
 FIND_PACKAGE(Thrift REQUIRED)
 
@@ -185,6 +187,7 @@ INCLUDE_DIRECTORIES(utils/include)
 
 # Applications, please keep sorted
 ADD_SUBDIRECTORY(hello)
+ADD_SUBDIRECTORY(hellolog4cplus)
 ADD_SUBDIRECTORY(mongodb)
 ADD_SUBDIRECTORY(thriftsample)
 ADD_SUBDIRECTORY(thrifttutorial)
