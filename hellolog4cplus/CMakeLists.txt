@@ -13,3 +13,6 @@ TARGET_LINK_LIBRARIES(timeformat ${LOG4CPLUS_LIBRARIES})
 
 ADD_EXECUTABLE(logpatternlayout app/logpatternlayout.cpp)
 TARGET_LINK_LIBRARIES(logpatternlayout ${LOG4CPLUS_LIBRARIES})
+
+ADD_EXECUTABLE(logpropertyconfig app/logpropertyconfig.cpp)
+TARGET_LINK_LIBRARIES(logpropertyconfig ${LOG4CPLUS_LIBRARIES})
