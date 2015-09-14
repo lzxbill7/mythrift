@@ -23,7 +23,7 @@ public:
 
 protected:
     MongoBase(void);
-    ~MongoBase(void);
+    virtual ~MongoBase(void);
 
     void open(const char* endpoint = "localhost");
     void open(const std::string& endpoint)

@@ -50,7 +50,7 @@ void MongoBase::close(void)
         delete m_dbconn;
         m_dbconn = NULL;
 
-        delete m_lastErrorBuff;
+        free(m_lastErrorBuff);
         m_lastErrorBuff = NULL;
     }
 }
