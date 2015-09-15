@@ -1,10 +1,10 @@
 # apps or test
 
-ADD_EXECUTABLE(calculator Calculator_server.skeleton.cpp)
-TARGET_LINK_LIBRARIES(calculator ${THRIFTTUTORIAL_NEEDED_LIBS})
-# INSTALL(TARGETS calculator DESTINATION bin)
+ADD_EXECUTABLE(calculatorserver calculatorserver.cpp)
+TARGET_LINK_LIBRARIES(calculatorserver ${THRIFTTUTORIAL_NEEDED_LIBS})
+# INSTALL(TARGETS calculatorserver DESTINATION bin)
 
-ADD_EXECUTABLE(sharedserver SharedService_server.skeleton.cpp)
+ADD_EXECUTABLE(sharedserver sharedserver.cpp)
 TARGET_LINK_LIBRARIES(sharedserver ${THRIFTTUTORIAL_NEEDED_LIBS})
 # INSTALL(TARGETS sharedserver DESTINATION bin)
 
