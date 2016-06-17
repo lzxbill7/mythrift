@@ -10,6 +10,7 @@
 #include <log4cplus/configurator.h>
 #include <log4cplus/helpers/loglog.h>
 #include <log4cplus/helpers/stringhelper.h>
+#include <log4cplus/initializer.h>
 #include <log4cplus/loggingmacros.h>
 
 using namespace std;
@@ -19,7 +20,7 @@ using namespace log4cplus::helpers;
 int main()
 {
     tcout << LOG4CPLUS_TEXT("Entering main()...") << endl;
-    log4cplus::initialize();
+    Initializer initializer;
     LogLog::getLogLog()->setInternalDebugging(true);
     Logger root = Logger::getRoot();
     try

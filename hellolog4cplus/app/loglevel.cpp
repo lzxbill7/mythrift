@@ -10,7 +10,7 @@
 #include <log4cplus/logger.h>
 #include <log4cplus/loggingmacros.h>
 #include <log4cplus/configurator.h>
-#include <iomanip>
+#include <log4cplus/initializer.h>
 #include <iostream>
 
 using namespace std;
@@ -30,7 +30,7 @@ void printMessages()
 
 int main()
 {
-    initialize();
+    Initializer initializer;
     BasicConfigurator config;
     config.configure();
 

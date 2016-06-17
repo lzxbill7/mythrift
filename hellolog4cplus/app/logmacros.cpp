@@ -10,6 +10,7 @@
 #include <log4cplus/logger.h>
 #include <log4cplus/loggingmacros.h>
 #include <log4cplus/configurator.h>
+#include <log4cplus/initializer.h>
 #include <iomanip>
 
 using namespace std;
@@ -17,7 +18,7 @@ using namespace log4cplus;
 
 int main()
 {
-    initialize();
+    Initializer initializer;
     BasicConfigurator config;
     config.configure();
     Logger logger = Logger::getInstance(LOG4CPLUS_TEXT("logger"));
