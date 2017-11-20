@@ -32,7 +32,6 @@ public:
     void ping() {
         // Your implementation goes here
         cout << "ping()" << endl;
-        ;
     }
 
     int32_t add(const int32_t num1, const int32_t num2) {
