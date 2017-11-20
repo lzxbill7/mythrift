@@ -1,5 +1,7 @@
 # Project Specific #
 ####################
+/.idea/
+/cmake-build-debug/
 /.refactorings
 /build
 /*.make
