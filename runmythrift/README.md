@@ -27,6 +27,7 @@ make && make test
 ```
 ldconfig
 mongod -f /etc/mongod.conf
+cd /opt/mythrift/build
 cmake ..  (maybe you have to delete CMakeCache.txt first)
 make
 make test
