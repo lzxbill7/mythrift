@@ -4,8 +4,6 @@ MAKE := $(MAKE) -j$(shell grep -c ^processor /proc/cpuinfo)
 CMAKE := $(shell which cmake28 > /dev/null 2>&1 && echo cmake28 || echo cmake)
 CCMAKE := $(shell which ccmake28 > /dev/null 2>&1 && echo ccmake28 || echo ccmake)
 
-include *.make
-
 all:
 	test -d $(BUILD) || (mkdir -p $(BUILD) && cd $(BUILD) && $(CMAKE) -D CMAKE_BUILD_TYPE=RelWithDebInfo $(TOP))
 	cd $(BUILD) && $(MAKE)
