@@ -1,21 +1,16 @@
-# Find the Thrift includes and library
+# Find the Mongo includes and library
 
 FIND_PATH(MONGO_INCLUDE_DIR mongo/client/dbclient.h
-    /usr/local/include
-)
+        ${PROJECT_SOURCE_DIR}/../third-lib/mongoclient/include
+        /usr/local/include
+        /usr/include
+        )
 
-# On unix system, debug and release have the same name
 FIND_LIBRARY(MONGO_LIBRARY mongoclient
-    ${MONGO_INCLUDE_DIR}/../lib
-)
-
-FIND_LIBRARY(MONGO_DEBUG_LIBRARY mongoclient
-    ${MONGO_INCLUDE_DIR}/../lib
-)
-
-IF (MONGO_INCLUDE_DIR AND MONGO_LIBRARIES)
-    SET(MONGO_FOUND TRUE)
-ENDIF (MONGO_INCLUDE_DIR AND MONGO_LIBRARIES)
+        ${MONGO_INCLUDE_DIR}/../lib
+        /usr/local/lib
+        /usr/lib
+        )
 
 IF (MONGO_INCLUDE_DIR AND MONGO_LIBRARY)
     SET(MONGO_FOUND TRUE)
@@ -25,7 +20,6 @@ IF (MONGO_FOUND)
     MESSAGE(STATUS "Found MONGO INCLUDE: ${MONGO_INCLUDE_DIR}")
     MESSAGE(STATUS "Found MONGO LIBRARY: ${MONGO_LIBRARY}")
     SET(MONGO_LIBRARIES ${MONGO_LIBRARY})
-    SET(MONGO_DEBUG_LIBRARIES ${MONGO_DEBUG_LIBRARY})
 ELSE (MONGO_FOUND)
     IF (MONGO_FIND_REQUIRED)
         MESSAGE(FATAL_ERROR "MONGO not found")
@@ -33,5 +27,3 @@ ELSE (MONGO_FOUND)
         MESSAGE(STATUS "MONGO not found")
     ENDIF (MONGO_FIND_REQUIRED)
 ENDIF (MONGO_FOUND)
-
-MARK_AS_ADVANCED(MONGO_DEBUG_LIBRARY MONGO_INCLUDE_DIR MONGO_LIBRARY)

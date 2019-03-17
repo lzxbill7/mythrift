@@ -1,3 +1,4 @@
+#@IgnoreInspection BashAddShebang
 TOP := $(CURDIR)
 BUILD := $(TOP)/build
 MAKE := $(MAKE) -j$(shell grep -c ^processor /proc/cpuinfo)
@@ -93,7 +94,7 @@ memtest:
 
 
 clean:
-	-(cd $(BUILD) && $(MAKE) clean)
+	-cd $(BUILD) && $(MAKE) clean
 .PHONY: clean
 c: clean
 

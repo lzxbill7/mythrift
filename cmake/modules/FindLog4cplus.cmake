@@ -1,14 +1,15 @@
 # Find the Log4cplus includes and library
 
 FIND_PATH(LOG4CPLUS_INCLUDE_DIR log4cplus/logger.h
-    /usr/local/include
-    /usr/include
-)
+        ${PROJECT_SOURCE_DIR}/../third-lib/log4cplus/include
+        /usr/local/include
+        /usr/include
+        )
 
 FIND_LIBRARY(LOG4CPLUS_LIBRARY log4cplus
-    ${LOG4CPLUS_INCLUDE_DIR}/../lib
-    /usr/local/lib
-    /usr/lib)
+        ${LOG4CPLUS_INCLUDE_DIR}/../lib
+        /usr/local/lib
+        /usr/lib)
 
 IF (LOG4CPLUS_INCLUDE_DIR AND LOG4CPLUS_LIBRARY)
     SET(LOG4CPLUS_FOUND TRUE)
@@ -25,5 +26,3 @@ ELSE (LOG4CPLUS_FOUND)
         MESSAGE(STATUS "LOG4CPLUS not found")
     ENDIF (LOG4CPLUS_FIND_REQUIRED)
 ENDIF (LOG4CPLUS_FOUND)
-
-MARK_AS_ADVANCED(LOG4CPLUS_INCLUDE_DIR LOG4CPLUS_LIBRARY)
