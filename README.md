@@ -8,11 +8,13 @@ demonstrate the thrift and mongodb usage
 * Boost development environment installed
 
 ## Build Prequisite:  
+* boost
 * cmake
 * cppunit (optioanl)
-* boost
-* thrift
+* libconfig
+* log4cplus
 * mongo-cxx-driver
+* thrift
 
 ## Code:  
 1. thrifttutorial: An official tutorial showing how to use thrift in cpp, from http://thrift.apache.org/tutorial/cpp  
@@ -20,4 +22,4 @@ demonstrate the thrift and mongodb usage
 3. mongodb: MongoDB connection and operation method. from https://github.com/mongodb/mongo-cxx-driver/wiki/Tutorial  
 
 ## HOW TO:  
-Clone the code, run '$make all'. To be continued ...
+cd docker dir, and see readme.md, use docker for compiling is easy.
