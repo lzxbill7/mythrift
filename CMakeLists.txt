@@ -4,6 +4,11 @@ PROJECT(mythrift)
 #SET(CMAKE_VERBOSE_MAKEFILE TRUE)
 CMAKE_MINIMUM_REQUIRED(VERSION 2.6.0)
 
+# MACOSX_RPATH for mac warning
+IF(APPLE)
+    SET(CMAKE_MACOSX_RPATH 1)
+ENDIF(APPLE)
+
 # http://www.cmake.org/pipermail/cmake/2010-July/037965.html
 EXECUTE_PROCESS(
     COMMAND "${mythrift_SOURCE_DIR}/script/get_version.sh"
